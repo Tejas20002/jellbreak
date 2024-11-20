@@ -1,0 +1,21 @@
+name: Manual Workflow Example
+
+# Triggered manually via the GitHub UI or API
+on:
+  workflow_dispatch:
+
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Display environment input
+        run: echo "Deploying to ${{ github.ref }} environment"
+        
+      - name: Run some task
+        run: |
+          echo "Running some task for ${{ github.ref_name }} environment"
